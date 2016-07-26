@@ -1,0 +1,67 @@
+Initialize local repository:
+   $ git init
+
+Check Status and log:
+   $ git status
+   $ git log
+   $ git branch -a
+
+Ignore local files:
+   $ touch .gitignore
+   List files that should be ignored in .gitignore file
+
+Add files to staging area:
+   $ git add <file>
+   $ git add -A
+
+Remove from staging area:
+   $ git reset <file>
+   $ git reset
+
+Commit
+   $ git commit -m "Change Message"
+
+%%%%%%% Remote Repository %%%%%%%%
+   $ git clone <url> <where to clone>
+ 
+Information and Branches
+   $ git remote -v
+   $ git branch -a
+
+Commit Changes
+   $ git diff
+   $ git status
+   $ git add -A
+   $ git commit -m "Changes made"
+
+   $ git pull origin master
+   $ git push origin master
+
+&&&& Common Workflow &&&&
+Create Branch for working on a feature
+
+Create Branch
+   $ git branch <Branch-name>
+
+Change working branch
+   $ git checkout <Branch-name>
+Then add and commit
+
+Push branch to remote repo for first time:
+   $ git push -u <repo-name> <branch-name>
+Then:
+   $ git push
+   $ git pull
+
+After verifying changes in a branch with unit tests, 
+   $ git checkout master
+   $ git pull origin master
+   $ git branch --merged      #Branches merged so far
+   $ git merge <Branch-Name>  #merge locally
+   $ git push origin master   #push to remote
+
+   $ git branch -d <Branch-Name> #Delete branch locally
+   $ git push origin --delete <Branch-Name>
+
+Source Video: https://www.youtube.com/watch?v=HVsySz-h9r4
+   
