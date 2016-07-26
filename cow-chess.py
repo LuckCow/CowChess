@@ -58,12 +58,12 @@ class AI:
         sys.stdout.write("Confusing message for debugging?"+'\n')
         sys.stdout.flush()
         '''
-        move, score = self.minimax(None, -1)
+        move, score = self.minimax(None, -1, -101, 101)
         print("Best score: {}".format(score))
         sys.stdout.write("bestmove " + move + '\n')
         sys.stdout.flush()
 
-    def minimax(self, move, depth):
+    def minimax(self, move, depth, alpha, beta):
         depth += 1
         if depth > 0:
             self.board.push_uci(move)
@@ -98,22 +98,32 @@ class AI:
             self.board.pop()
             return move, sc
         else:
-            scores = list() 
-            moves = list()
-            for m in (str(m) for m in self.board.legal_moves):
-                _, score = self.minimax(m, depth)
-                moves.append(m)
-                scores.append(score)
             if self.board.turn:
-                bestMove = moves[scores.index(max(scores))]
-                score =  max(scores)
+                bestScore = -101
+                bestMove = None
+                for m in (str(m) for m in self.board.legal_moves):
+                    _, score = self.minimax(m, depth, alpha, beta)
+                    if score > bestScore:
+                        bestScore = score
+                        bestMove = m
+                    alpha = max(alpha, bestScore)
+                    if beta <= alpha:
+                        break
             else:
-                bestMove =  moves[scores.index(min(scores))]
-                score = min(scores)
+                bestScore = 101
+                bestMove = None
+                for m in (str(m) for m in self.board.legal_moves):
+                    _, score = self.minimax(m, depth, alpha, beta)
+                    if score < bestScore:
+                        bestScore = score
+                        bestMove = m
+                    beta = min(beta, bestScore)
+                    if beta <= alpha:
+                        break
 
             if depth > 0:
                 self.board.pop()
-            return bestMove, score
+            return bestMove, bestScore
 
 
     def board_score(self):

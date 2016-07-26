@@ -1,0 +1,11 @@
+List of positions in which bugs were encountered:
+
+position fen r1bq1b1r/ppp1p1pp/4B3/1k1N4/1Q6/4P3/PP1B1PPP/R2K2NR b - - 6 14
+
+Mate inevitable: Plays a white move???
+
+position fen R1b5/2pk4/4p3/6K1/6P1/7P/7r/8 b - - 4 49
+does not take free pawn
+
+position fen r1bqkbnr/pppppppp/8/1N6/2QN4/2P1P3/PP1P1PPP/R1B1K2R b KQk - 8 10
+leaves pawn hanging
