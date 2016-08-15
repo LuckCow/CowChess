@@ -1,11 +1,31 @@
 List of positions in which bugs were encountered:
 
-position fen r1bq1b1r/ppp1p1pp/4B3/1k1N4/1Q6/4P3/PP1B1PPP/R2K2NR b - - 6 14
-
-Mate inevitable: Plays a white move???
+position fen rnbqkbnr/pppp1ppp/8/4p3/4P3/3P4/PPP2PPP/RNBQKBNR b KQkq - 0 2
+moves queen into danger
 
 position fen R1b5/2pk4/4p3/6K1/6P1/7P/7r/8 b - - 4 49
 does not take free pawn
 
 position fen r1bqkbnr/pppppppp/8/1N6/2QN4/2P1P3/PP1P1PPP/R1B1K2R b KQk - 8 10
 leaves pawn hanging
+
+position fen r1bqkbnr/pppppppp/8/nB5Q/1P6/P3P3/2PP1PPP/RNB1K1NR b KQkq - 0 5
+fails to defend knight
+ 
+position fen r1bqkbnr/pppppppp/8/n6Q/8/P3P3/1PPP1PPP/RNB1KBNR b KQkq - 2 3
+best score 1.0 (schould be 0?)
+
+position fen b3kbnr/p2r2pp/3P1p2/4P3/1N3B2/P1N5/1P3P1P/3RR1K1 b k - 0 26
+pushes pawn against strong double past pawn
+
+Fixed----
+position fen r1bq1b1r/ppp1p1pp/4B3/1k1N4/1Q6/4P3/PP1B1PPP/R2K2NR b - - 6 14
+Mate inevitable: Plays a white move???
+
+Nevermind----
+
+position fen 1rbqkbnr/pppppppp/8/7Q/1PB5/PP2P3/3P1PPP/RNB1K1NR b KQk - 2 7
+avoids checkmate, but not optimally (picks d7d6 at depth 2, e7e6 at depth 4)
+
+position fen 1rbNkbnr/p1ppp2p/p4p2/7p/8/2N1P3/PPPP1PPP/R1B1K2R b KQk - 0 9
+does not take knight! nevermind, it was trapped anyways... interesting choice
